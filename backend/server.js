@@ -7,6 +7,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use(UserRoutes())
+app.use(UserRoutes)
 
 app.listen(8080, () => console.log("server running"))
