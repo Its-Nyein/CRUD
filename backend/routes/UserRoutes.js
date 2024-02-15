@@ -1,7 +1,7 @@
 import express from "express";
 import { getUsers } from "../controller/UserController.js";
 
-const router = express.getUsers();
+const router = express.Router();
 
 router.get('/crud_users', getUsers);
 
