@@ -1,1 +1,27 @@
 GET http://localhost:8080/crud_users
+
+###
+GET http://localhost:8080/crud_users/1
+
+###
+POST http://localhost:8080/crud_users
+Content-Type: application/json
+
+{
+    "name": "Nay Toe",
+    "email": "naytoe@gmail.com",
+    "gender": "Male"
+}
+
+###
+PATCH  http://localhost:8080/crud_users/1
+Content-Type: application/json
+
+{
+    "name": "Nyeinn",
+    "email": "nyeinn@gmail.com",
+    "gender": "Male"
+}
+
+###
+# DELETE   http://localhost:8080/crud_users/1
