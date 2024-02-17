@@ -33,7 +33,7 @@ export const createUser = async(req, res) => {
 
 export const updateUser = async(req, res) => {
     try{
-        await User.create(req.body, {
+        await User.update(req.body, {
             where: {
                 id: req.params.id
             }
@@ -46,7 +46,7 @@ export const updateUser = async(req, res) => {
 
 export const deleteUser = async(req, res) => {
     try{
-        await User.create({
+        await User.destroy({
             where: {
                 id: req.params.id
             }
