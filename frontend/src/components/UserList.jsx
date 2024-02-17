@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -7,16 +8,26 @@ function UserList() {
   const getUsers = async () => {
     const response = await axios.get("http://localhost:8080/crud_users");
     setUsers(response.data);
-    console.log(response);
   };
 
   useEffect(() => {
     getUsers();
   }, []);
+
+  const deleteUser = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8080/crud_users/${id}`);
+      getUsers();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
       <div className="w-50 bg-white rounded p-3">
-        <button className="btn btn-success">Add +</button>
+        <Link to={`add`} className="btn btn-success">
+          Add +
+        </Link>
         <table className="table">
           <thead>
             <tr>
@@ -35,8 +46,15 @@ function UserList() {
                 <td>{user.email}</td>
                 <td>{user.gender}</td>
                 <td>
-                  <button className="btn btn-primary">Edit</button>
-                  <button className="btn btn-danger ms-2">Delete</button>
+                  <Link to={`edit/${user.id}`} className="btn btn-primary">
+                    Edit
+                  </Link>
+                  <button
+                    onClick={() => deleteUser(user.id)}
+                    className="btn btn-danger ms-2"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

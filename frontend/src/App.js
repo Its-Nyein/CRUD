@@ -10,8 +10,8 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<UserList/>}></Route>
-        <Route path='/add' element={<AddUser/>}></Route>
-        <Route path='/edit/:id' element={<EditUser/>}></Route>
+        <Route path='add' element={<AddUser/>}></Route>
+        <Route path='edit/:id' element={<EditUser/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>
